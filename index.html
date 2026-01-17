@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Authentication Section -->
+        <div id="authSection" class="auth-section">
+            <h1>Cloud To-Do List</h1>
+
+            <div class="auth-tabs">
+                <button class="tab-btn active" id="loginTab">Login</button>
+                <button class="tab-btn" id="signupTab">Sign Up</button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="auth-form active">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button id="loginBtn" class="btn btn-primary">Login</button>
+                <p id="loginError" class="error-msg"></p>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signupForm" class="auth-form">
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <input type="password" id="signupConfirm" placeholder="Confirm Password" required>
+                <button id="signupBtn" class="btn btn-primary">Sign Up</button>
+                <p id="signupError" class="error-msg"></p>
+            </div>
+        </div>
+
+        <!-- Main App Section -->
+        <div id="appSection" class="app-section hidden">
+            <div class="header">
+                <h1>My Tasks</h1>
+                <div class="user-info">
+                    <span id="userEmail"></span>
+                    <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+                </div>
+            </div>
+
+            <!-- Add Task Section -->
+            <div class="task-input-section">
+                <input type="text" id="taskInput" placeholder="Add a new task..." required>
+                <select id="prioritySelect">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <button id="addTaskBtn" class="btn btn-primary">Add Task</button>
+            </div>
+
+            <!-- Error/Success Messages -->
+            <p id="taskError" class="error-msg"></p>
+            <p id="taskSuccess" class="success-msg"></p>
+
+            <!-- Tasks List -->
+            <div id="tasksList" class="tasks-list">
+                <p class="empty-state">No tasks yet. Add one to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"></script>
+
+    <!-- Application Script -->
+    <script src="script.js"></script>
+</body>
+</html>
