@@ -3,12 +3,13 @@
 // Replace these with your Firebase configuration
 // ============================================================
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyD7pR7ykSpXa6ZyOFkz9NdPR-WiBYYpEVc",
+  authDomain: "todo-8d14e.firebaseapp.com",
+  projectId: "todo-8d14e",
+  storageBucket: "todo-8d14e.firebasestorage.app",
+  messagingSenderId: "948389169998",
+  appId: "1:948389169998:web:658780188a907120952c1f",
+  measurementId: "G-VT81EK9MCV"
 };
 
 // Initialize Firebase
