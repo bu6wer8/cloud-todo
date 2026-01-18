@@ -8,37 +8,29 @@ const firebaseConfig = {
   measurementId: "G-VT81EK9MCV"
 };
 
-// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 
-// ============================================================
-// DOM ELEMENTS
-// ============================================================
 const authSection = document.getElementById('authSection');
 const appSection = document.getElementById('appSection');
 
-// Auth tabs and forms
 const loginTab = document.getElementById('loginTab');
 const signupTab = document.getElementById('signupTab');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
 
-// Login elements
 const loginEmail = document.getElementById('loginEmail');
 const loginPassword = document.getElementById('loginPassword');
 const loginBtn = document.getElementById('loginBtn');
 const loginError = document.getElementById('loginError');
 
-// Signup elements
 const signupEmail = document.getElementById('signupEmail');
 const signupPassword = document.getElementById('signupPassword');
 const signupConfirm = document.getElementById('signupConfirm');
 const signupBtn = document.getElementById('signupBtn');
 const signupError = document.getElementById('signupError');
 
-// App elements
 const userEmail = document.getElementById('userEmail');
 const logoutBtn = document.getElementById('logoutBtn');
 const taskInput = document.getElementById('taskInput');
@@ -48,11 +40,6 @@ const tasksList = document.getElementById('tasksList');
 const taskError = document.getElementById('taskError');
 const taskSuccess = document.getElementById('taskSuccess');
 
-// ============================================================
-// AUTHENTICATION EVENT LISTENERS
-// ============================================================
-
-// Tab switching
 loginTab.addEventListener('click', () => {
     loginTab.classList.add('active');
     signupTab.classList.remove('active');
@@ -128,7 +115,6 @@ signupBtn.addEventListener('click', async () => {
     }
 });
 
-// Logout
 logoutBtn.addEventListener('click', async () => {
     try {
         await auth.signOut();
@@ -136,10 +122,6 @@ logoutBtn.addEventListener('click', async () => {
         console.error('Logout error:', error);
     }
 });
-
-// ============================================================
-// TASK MANAGEMENT EVENT LISTENERS
-// ============================================================
 
 addTaskBtn.addEventListener('click', async () => {
     const taskText = taskInput.value.trim();
@@ -182,29 +164,19 @@ addTaskBtn.addEventListener('click', async () => {
     }
 });
 
-// ============================================================
-// AUTHENTICATION STATE LISTENER
-// ============================================================
-
 auth.onAuthStateChanged(async (user) => {
     if (user) {
-        // User is logged in
         authSection.classList.add('hidden');
         appSection.classList.remove('hidden');
         userEmail.textContent = user.email;
         loadTasks();
     } else {
-        // User is logged out
         authSection.classList.remove('hidden');
         appSection.classList.add('hidden');
         tasksList.innerHTML = '<p class="empty-state">No tasks yet. Add one to get started!</p>';
         clearAuthForms();
     }
 });
-
-// ============================================================
-// TASK LOADING AND DISPLAY
-// ============================================================
 
 async function loadTasks() {
     try {
@@ -300,10 +272,6 @@ async function deleteTask(taskId) {
         showTaskError('Error deleting task');
     }
 }
-
-// ============================================================
-// UTILITY FUNCTIONS
-// ============================================================
 
 function showLoginError(message) {
     loginError.textContent = message;
