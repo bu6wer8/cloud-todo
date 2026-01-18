@@ -1,7 +1,3 @@
-// ============================================================
-// FIREBASE CONFIGURATION
-// Replace these with your Firebase configuration
-// ============================================================
 const firebaseConfig = {
   apiKey: "AIzaSyD7pR7ykSpXa6ZyOFkz9NdPR-WiBYYpEVc",
   authDomain: "todo-8d14e.firebaseapp.com",
@@ -11,6 +7,7 @@ const firebaseConfig = {
   appId: "1:948389169998:web:658780188a907120952c1f",
   measurementId: "G-VT81EK9MCV"
 };
+
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
